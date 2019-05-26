@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Send Email</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/shards.min.css">
+    </head>
+    <body>
+        <div class="container my-5">
+            <h2 class="mb-5">Send Email</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="#" th:action="@{/sendmail}" th:object="${mail}" method="post">
+                        <div class="row">
+                        	 <div class="form-group col-md-6">
+                                <label for="from" class="col-form-label">From</label>
+                                <input type="text" th:field="*{from}" class="form-control" id="from" placeholder="From">
+                                <span th:if="${#fields.hasErrors('from')}" th:errors="*{from}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="to" class="col-form-label">To:</label>
+                                <input type="text" th:field="*{to}" class="form-control" id="to" placeholder="To">
+                                <span th:if="${#fields.hasErrors('to')}" th:errors="*{to}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="subject" class="col-form-label">Subject:</label>
+                                <input type="text" th:field="*{subject}" class="form-control" id="subject" placeholder="Subject">
+                                <span th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-12">
+  								<label for="body" class="col-form-label">Body:</label>
+  								<textarea class="form-control" th:field="*{body}" rows="10" id="body"></textarea>
+							</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mt-5">
+                                <input type="submit" class="btn btn-primary" value="Send Mail">
+                            </div>
+                        </div>    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

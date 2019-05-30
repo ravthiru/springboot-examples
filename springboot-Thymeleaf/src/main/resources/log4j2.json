@@ -1,0 +1,33 @@
+{
+    "configuration": {
+        "status": "error",
+        "name": "email-stub",
+        "ThresholdFilter": {
+            "level": "debug"
+        },
+        "appenders": {
+            "Console": {
+                "name": "STDOUT",
+                "PatternLayout": {
+                    "pattern": "%d [%t] %-5p %c - %m%n"
+                }
+            }
+        },
+        "loggers": {
+            "logger":[
+                {"name":"com.icegreen.greenmail",
+            	"level": "DEBUG",
+                "AppenderRef": {
+                    "ref": "STDOUT"
+                   }}
+                ],
+            
+            "root": {
+                "level": "INFO",
+                "AppenderRef": {
+                    "ref": "STDOUT"
+                }
+            }
+        }
+    }
+}

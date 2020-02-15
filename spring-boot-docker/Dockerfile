@@ -1,4 +1,4 @@
-FROM nexus.corp.dmz:8083/java-base:latest
+FROM FROM adoptopenjdk/openjdk11:alpine-jre
 VOLUME /tmp
 COPY target/spring-boot-docker-*.jar app.jar
 ADD src/main/docker/entrypoint.sh entrypoint.sh

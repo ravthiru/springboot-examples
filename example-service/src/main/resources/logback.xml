@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  
+  <appender name="STDOUT"
+    class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n </pattern>
+    </encoder>
+  </appender>
+  
+  <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+  </root>
+  
+  <turboFilter class="ch.qos.logback.classic.turbo.DynamicThresholdFilter">
+  <Key>set-log-level</Key>
+  <DefaultThreshold>${LOG_LEVEL:-INFO}</DefaultThreshold>
+  <MDCValueLevelPair>
+    <value>ERROR</value>
+    <level>ERROR</level>
+  </MDCValueLevelPair>
+  <MDCValueLevelPair>
+    <value>WARN</value>
+    <level>WARN</level>
+  </MDCValueLevelPair>
+  <MDCValueLevelPair>
+    <value>DEBUG</value>
+    <level>DEBUG</level>
+  </MDCValueLevelPair>
+</turboFilter>
+
+</configuration>
